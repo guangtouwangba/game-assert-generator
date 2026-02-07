@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router";
 import Layout from "./components/layout/Layout";
 import GenerationForm from "./components/generation/GenerationForm";
 import HistoryGallery from "./components/history/HistoryGallery";
