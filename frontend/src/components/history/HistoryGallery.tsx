@@ -43,13 +43,13 @@ export default function HistoryGallery() {
         />
       )}
 
-      {data && data.items.length === 0 && (
+      {data && Array.isArray(data.items) && data.items.length === 0 && (
         <div className="py-16 text-center text-gray-500">
           No generations found
         </div>
       )}
 
-      {data && data.items.length > 0 && (
+      {data && Array.isArray(data.items) && data.items.length > 0 && (
         <>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {data.items.map((generation) => (
