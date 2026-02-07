@@ -9,8 +9,9 @@ from app.config import settings
 connect_args: dict = {}
 db_url = settings.async_database_url
 
-# Auto-enable SSL for non-localhost connections
-if "localhost" not in db_url and "127.0.0.1" not in db_url:
+# Auto-enable SSL for non-localhost, non-internal connections
+no_ssl_hosts = ["localhost", "127.0.0.1", ".zeabur.internal"]
+if not any(h in db_url for h in no_ssl_hosts):
     ssl_ctx = ssl.create_default_context()
     ssl_ctx.check_hostname = False
     ssl_ctx.verify_mode = ssl.CERT_NONE
